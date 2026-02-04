@@ -48,18 +48,17 @@ ecbuild_bundle( PROJECT ropp-ufo  GIT "https://github.com/JCSDA-internal/ropp-te
 option(BUNDLE_SKIP_RTTOV "Don't build rttov"  "ON") # Skip rttov build unless user passes -DBUNDLE_SKIP_RTTOV=OFF
 ecbuild_bundle( PROJECT rttov     GIT "https://github.com/JCSDA-internal/rttov.git"       BRANCH develop UPDATE )
 
-ecbuild_bundle( PROJECT oops      GIT "https://github.com/JCSDA/oops.git"        TAG d772173 )
+ecbuild_bundle( PROJECT oops      GIT "https://github.com/mos3r3n/oops.git" BRANCH SINGV-NG-1.0 UPDATE )
 ecbuild_bundle( PROJECT vader     GIT "https://github.com/JCSDA/vader.git"       TAG 6d56a1e )
-ecbuild_bundle( PROJECT saber     GIT "https://github.com/JCSDA/saber.git"       TAG bba6f7e )
-ecbuild_bundle( PROJECT crtm      GIT "https://github.com/JCSDA/CRTMv3.git"      TAG 73102a2 )
+ecbuild_bundle( PROJECT saber     GIT "https://github.com/mos3r3n/saber.git" BRANCH SINGV-NG-1.0 UPDATE )
+ecbuild_bundle( PROJECT crtm      GIT "https://github.com/JCSDA/crtm.git"        TAG v2.4.1-jedi.2 )
 
 option(ENABLE_IODA_DATA "Obtain ioda test data from ioda-data repository (vs tarball)" ON)
 ecbuild_bundle( PROJECT ioda-data GIT "https://github.com/JCSDA-internal/ioda-data.git"   TAG bcb0754 )
 ecbuild_bundle( PROJECT ioda      GIT "https://github.com/JCSDA/ioda.git"                 TAG d49ed17 )
 option(ENABLE_UFO_DATA "Obtain ufo test data from ufo-data repository (vs tarball)" ON)
 ecbuild_bundle( PROJECT ufo-data  GIT "https://github.com/JCSDA-internal/ufo-data.git"    TAG 9e4eb40 )
-ecbuild_bundle( PROJECT ufo       GIT "https://github.com/JCSDA/ufo.git"                  TAG 94d50d6 )
-
+ecbuild_bundle( PROJECT ufo       GIT "https://github.com/mos3r3n/ufo.git"  BRANCH SINGV-NG-1.0 UPDATE )
 
 # Find external ESMF for mpas-model (optional)
 find_package(ESMF 8.3.0 MODULE)
@@ -67,10 +66,10 @@ find_package(ESMF 8.3.0 MODULE)
 set(MPAS_DOUBLE_PRECISION "ON" CACHE STRING "MPAS-Model: Use double precision 64-bit Floating point.")
 set(MPAS_CORES init_atmosphere atmosphere CACHE STRING "MPAS-Model: cores to build.")
 
-ecbuild_bundle( PROJECT MPAS      GIT "https://github.com/MPAS-Dev/MPAS-Model" TAG v8.2.2 )
+ecbuild_bundle( PROJECT MPAS      GIT "https://github.com/mos3r3n/MPAS-Model-SINGVNG.git" BRANCH nssl UPDATE)
 option(ENABLE_MPAS_JEDI_DATA "Obtain mpas-jedi test data from mpas-jedi-data repository (vs tarball)" ON)
 ecbuild_bundle( PROJECT mpas-jedi-data  GIT "https://github.com/JCSDA-internal/mpas-jedi-data.git"  TAG 12cdc56 )
-ecbuild_bundle( PROJECT mpas-jedi GIT "https://github.com/JCSDA/mpas-jedi"     TAG 3.0.2.mmm )
+ecbuild_bundle( PROJECT mpas-jedi GIT "https://github.com/mos3r3n/mpas-jedi" BRANCH SINGV-NG-1.0 UPDATE)
 
 # Set GIT_BRANCH_FUNC to MPAS-JEDI's current branch so that it can be used for mpas-jedi-data
 find_branch_name(REPO_DIR_NAME mpas-jedi)
